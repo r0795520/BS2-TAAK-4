@@ -8,7 +8,7 @@ on:
     branches: master
 
 jobs:
-  maven_Testing_Building:
+  maven_testen_builden:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,3 +19,21 @@ jobs:
 
       - name: Builden met Maven
         run: mvn -B package --file pom.xml
+
+  maven_image_pushen_dockerhub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Buildx docker
+      - uses: docker/setup-buildx-action@v1
+      - name: login
+      - uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.USERNAMEDOCKERHUB }}
+          password: ${{ secrets.PASSWORDDOCKERHUB }}
+
+      - name: builden en pushen naar dockerhub
+        id: dockerbuild
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: obim/bs2_taak4_githubactions:latest
