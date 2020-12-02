@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="BS2-TAAK-4:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>BS2-TAAK-4</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="project-ucll-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="BS2-TAAK-4:war exploded" />
+    </root>
+  </artifact>
+</component>
